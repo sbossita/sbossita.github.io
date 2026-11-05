@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>动漫官网入口-在线观看平台导航_追番新番资源站</title>
+<meta name="description" content="动漫官网入口是整理正版动漫观看平台与官方资源站点导航的专题首页，汇总新番追更、经典补番、剧场版与官方资讯渠道，帮助观众快速找到想看的内容与对应入口。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231b2340'/%3E%3Cpath d='M32 14l4.6 11.2L48 26l-8.4 8 2.4 11.5L32 40.2 22 45.5l2.4-11.5L16 26l11.4-.8z' fill='%23ffb84d'/%3E%3C/svg%3E">
+<style>
+:root{
+  --ink:#1b2340;
+  --ink-soft:#3c4566;
+  --paper:#f6f5fb;
+  --card:#ffffff;
+  --line:#e3e1ef;
+  --accent:#ef5b7d;
+  --accent-soft:#ffe7ee;
+  --gold:#ffb84d;
+  --radius:16px;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,"Segoe UI",sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.75;
+  font-size:16px;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none;}
+h1,h2,h3{line-height:1.35;margin:0;}
+p{margin:0;}
+.wrap{width:100%;max-width:1120px;margin:0 auto;padding:0 20px;}
+
+/* 页头 */
+.topbar{
+  position:sticky;top:0;z-index:50;
+  background:rgba(27,35,64,.96);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+.topbar .wrap{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:16px;min-height:64px;
+}
+.logo{
+  display:flex;align-items:center;gap:10px;
+  color:#fff;font-weight:700;font-size:18px;letter-spacing:.5px;
+  white-space:nowrap;
+}
+.logo svg{width:30px;height:30px;flex:none;}
+.nav{display:flex;gap:6px;flex-wrap:wrap;}
+.nav a{
+  color:#d6d8e6;font-size:14.5px;padding:7px 12px;border-radius:999px;
+  transition:background .18s,color .18s;
+}
+.nav a:hover,.nav a:focus-visible{background:rgba(255,255,255,.12);color:#fff;outline:none;}
+
+/* 首屏 */
+.hero{
+  background:
+    radial-gradient(900px 320px at 85% -10%,rgba(239,91,125,.28),transparent 70%),
+    radial-gradient(700px 300px at 5% 110%,rgba(255,184,77,.22),transparent 70%),
+    linear-gradient(160deg,#1b2340 0%,#242e52 100%);
+  color:#fff;
+  padding:52px 0 46px;
+}
+.hero-grid{
+  display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center;
+}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:13px;letter-spacing:1px;color:#ffd9a3;
+  background:rgba(255,184,77,.14);
+  border:1px solid rgba(255,184,77,.35);
+  padding:5px 13px;border-radius:999px;margin-bottom:18px;
+}
+.hero h1{
+  font-size:clamp(28px,4.4vw,44px);
+  font-weight:800;letter-spacing:1px;margin-bottom:16px;
+}
+.hero h1 span{color:var(--gold);}
+.hero-lead{
+  color:#c9cee2;font-size:16.5px;max-width:36em;margin-bottom:26px;
+}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:11px 22px;border-radius:999px;font-size:15px;font-weight:600;
+  border:1px solid transparent;transition:transform .16s,box-shadow .16s,background .16s;
+}
+.btn-primary{background:var(--accent);color:#fff;box-shadow:0 8px 20px -8px rgba(239,91,125,.9);}
+.btn-primary:hover{transform:translateY(-2px);background:#e2456a;}
+.btn-ghost{background:rgba(255,255,255,.08);color:#fff;border-color:rgba(255,255,255,.28);}
+.btn-ghost:hover{background:rgba(255,255,255,.16);}
+.btn[data-download-placeholder="true"]{
+  background:rgba(255,255,255,.06);color:#a9b0c9;
+  border-color:rgba(255,255,255,.2);
+  pointer-events:none;
+}
+.hero-stats{
+  display:flex;gap:26px;margin-top:30px;flex-wrap:wrap;
+}
+.hero-stats div{font-size:13.5px;color:#a9b0c9;}
+.hero-stats strong{display:block;font-size:21px;color:#fff;font-weight:700;}
+
+.hero-art{
+  position:relative;
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:24px;
+  padding:22px;
+}
+.hero-art svg{width:100%;height:auto;display:block;}
+
+/* 通用区块 */
+section{padding:56px 0;}
+.sec-head{max-width:44em;margin-bottom:30px;}
+.sec-tag{
+  font-size:13px;font-weight:700;letter-spacing:2px;color:var(--accent);
+  text-transform:uppercase;margin-bottom:10px;display:block;
+}
+.sec-head h2{font-size:clamp(22px,2.8vw,28px);font-weight:800;margin-bottom:12px;}
+.sec-head p{color:var(--ink-soft);font-size:15.5px;}
+
+/* 平台卡片 */
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:24px;display:flex;flex-direction:column;gap:12px;
+  transition:transform .18s,box-shadow .18s,border-color .18s;
+}
+.card:hover{transform:translateY(-4px);box-shadow:0 18px 34px -22px rgba(27,35,64,.5);border-color:#d5d0ea;}
+.card-icon{
+  width:42px;height:42px;border-radius:12px;background:var(--accent-soft);
+  display:grid;place-items:center;color:var(--accent);
+}
+.card-icon svg{width:22px;height:22px;}
+.card h3{font-size:17.5px;font-weight:700;}
+.card p{font-size:14.5px;color:var(--ink-soft);flex:1;}
+.card-meta{
+  font-size:13px;color:#7c84a3;border-top:1px dashed var(--line);padding-top:12px;
+  display:flex;justify-content:space-between;gap:10px;
+}
+.card-link{color:var(--accent);font-weight:600;font-size:14px;}
+
+/* 筛选区 */
+.filter-bar{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:18px 20px;display:flex;flex-wrap:wrap;gap:12px;align-items:center;
+  margin-bottom:26px;
+}
+.filter-bar label{font-size:14px;color:var(--ink-soft);font-weight:600;}
+.filter-bar input[type="search"]{
+  flex:1;min-width:180px;padding:10px 14px;border-radius:10px;
+  border:1px solid var(--line);background:#fbfaff;font-size:14.5px;color:var(--ink);
+  font-family:inherit;
+}
+.filter-bar input[type="search"]:focus{outline:2px solid rgba(239,91,125,.4);outline-offset:1px;border-color:var(--accent);}
+.chip-row{display:flex;flex-wrap:wrap;gap:8px;}
+.chip{
+  font-size:13.5px;padding:6px 14px;border-radius:999px;cursor:pointer;
+  border:1px solid var(--line);background:#fbfaff;color:var(--ink-soft);
+  font-family:inherit;transition:all .16s;
+}
+.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:600;}
+.chip:hover{border-color:var(--accent);color:var(--accent);}
+.chip[aria-pressed="true"]:hover{color:#fff;}
+
+.list-card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  overflow:hidden;
+}
+.list-row{
+  display:grid;grid-template-columns:1fr auto;gap:6px 20px;
+  padding:20px 24px;border-bottom:1px solid var(--line);
+}
+.list-row:last-child{border-bottom:none;}
+.list-row h3{font-size:16.5px;font-weight:700;}
+.list-row .desc{font-size:14.5px;color:var(--ink-soft);grid-column:1;margin-top:2px;}
+.list-row .tagline{
+  grid-column:2;grid-row:1/3;align-self:center;
+  font-size:13px;color:#7c84a3;text-align:right;white-space:nowrap;
+}
+.list-row .tagline b{display:block;color:var(--accent);font-size:14px;}
+.empty{
+  padding:30px 24px;text-align:center;color:#8a91ab;font-size:14.5px;display:none;
+}
+.empty.show{display:block;}
+
+/* 指南 + 侧栏 */
+.split{display:grid;grid-template-columns:1.4fr .9fr;gap:28px;align-items:start;}
+.article-box{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:30px;
+}
+.article-box h2{font-size:22px;font-weight:800;margin-bottom:16px;}
+.article-box h3{font-size:16.5px;font-weight:700;margin:22px 0 8px;}
+.article-box p{font-size:15px;color:var(--ink-soft);margin-bottom:12px;}
+.article-box ul{margin:0 0 12px;padding-left:20px;color:var(--ink-soft);font-size:15px;}
+.article-box li{margin-bottom:7px;}
+.aside-box{
+  background:linear-gradient(165deg,#fff 0%,#fdf6f8 100%);
+  border:1px solid var(--line);border-radius:var(--radius);padding:26px;
+}
+.aside-box h3{font-size:17px;font-weight:800;margin-bottom:14px;}
+.aside-box p{font-size:14.5px;color:var(--ink-soft);margin-bottom:14px;}
+.steps{list-style:none;padding:0;margin:0;counter-reset:s;}
+.steps li{
+  counter-increment:s;position:relative;padding-left:36px;
+  font-size:14.5px;color:var(--ink-soft);margin-bottom:14px;
+}
+.steps li::before{
+  content:counter(s);position:absolute;left:0;top:1px;
+  width:24px;height:24px;border-radius:50%;background:var(--accent);color:#fff;
+  font-size:13px;font-weight:700;display:grid;place-items:center;
+}
+
+/* 更新区 */
+.update-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
+.update-item{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:22px 24px;
+}
+.update-item time{font-size:13px;color:var(--accent);font-weight:600;letter-spacing:.5px;}
+.update-item h3{font-size:16.5px;font-weight:700;margin:6px 0 6px;}
+.update-item p{font-size:14.5px;color:var(--ink-soft);}
+
+/* 页尾 */
+footer{
+  background:var(--ink);color:#b9bfd4;padding:44px 0 30px;margin-top:20px;
+}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:32px;margin-bottom:30px;}
+.foot-brand{display:flex;align-items:center;gap:10px;color:#fff;font-weight:700;font-size:17px;margin-bottom:12px;}
+.foot-brand svg{width:26px;height:26px;}
+footer p{font-size:14px;line-height:1.8;}
+.foot-col h4{color:#fff;font-size:14.5px;font-weight:700;margin-bottom:12px;}
+.foot-col a{display:block;font-size:14px;color:#b9bfd4;padding:3px 0;transition:color .16s;}
+.foot-col a:hover{color:var(--gold);}
+.foot-bottom{
+  border-top:1px solid rgba(255,255,255,.1);padding-top:18px;
+  font-size:13px;color:#8d94ae;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
+}
+
+@media (max-width:900px){
+  .hero-grid{grid-template-columns:1fr;}
+  .hero-art{order:-1;max-width:420px;}
+  .grid-3{grid-template-columns:repeat(2,1fr);}
+  .split{grid-template-columns:1fr;}
+  .update-grid{grid-template-columns:1fr;}
+  .foot-grid{grid-template-columns:1fr 1fr;}
+}
+@media (max-width:620px){
+  body{font-size:15.5px;}
+  .topbar .wrap{flex-direction:column;align-items:flex-start;gap:8px;padding-top:10px;padding-bottom:10px;}
+  .nav{gap:2px;}
+  .nav a{font-size:13.5px;padding:6px 9px;}
+  .hero{padding:34px 0 32px;}
+  .hero-art{display:none;}
+  .grid-3{grid-template-columns:1fr;}
+  .list-row{grid-template-columns:1fr;padding:18px 18px;}
+  .list-row .tagline{grid-column:1;grid-row:auto;text-align:left;margin-top:6px;}
+  .article-box,.aside-box{padding:22px 18px;}
+  .foot-grid{grid-template-columns:1fr;}
+  section{padding:40px 0;}
+}
+</style>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="logo" href="#top">
+      <svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#ffb84d"/><path d="M32 14l4.6 11.2L48 26l-8.4 8 2.4 11.5L32 40.2 22 45.5l2.4-11.5L16 26l11.4-.8z" fill="#1b2340"/></svg>
+      动漫官网入口
+    </a>
+    <nav class="nav" aria-label="主导航">
+      <a href="#platforms">观看平台</a>
+      <a href="#finder">找番筛选</a>
+      <a href="#guide">入门指南</a>
+      <a href="#updates">资讯更新</a>
+      <a href="#footer">关于本站</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- 首屏 -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">正版平台导航 · 追番与补番</span>
+        <h1>动漫官网入口</h1>
+        <p class="hero-lead">「动漫官网入口」是一份面向动漫观众的观看渠道整理页。这里按新番追更、经典补番、剧场版与官方资讯四类需求，汇总常用正版平台的入口特征与适用场景，帮助你在追一部作品之前先弄清楚该去哪里看、看什么版本。</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#platforms">查看平台入口</a>
+          <a class="btn btn-ghost" href="#finder">按条件找番</a>
+          <a class="btn" href="#" data-download-placeholder="true" aria-disabled="true" tabindex="-1">下载</a>
+        </div>
+        <div class="hero-stats">
+          <div><strong>4 类</strong>观看需求分类</div>
+          <div><strong>6 个</strong>常用平台方向</div>
+          <div><strong>持续</strong>按季度整理</div>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <svg viewBox="0 0 320 260" xmlns="http://www.w3.org/2000/svg">
+          <rect x="24" y="34" width="272" height="168" rx="16" fill="#2c3762" stroke="#4a5687"/>
+          <rect x="40" y="50" width="240" height="120" rx="8" fill="#1b2340"/>
+          <circle cx="88" cy="92" r="16" fill="#ffb84d"/>
+          <path d="M40 150l52-40 44 32 40-30 64 46v12H40z" fill="#ef5b7d" opacity=".55"/>
+          <rect x="40" y="182" width="240" height="8" rx="4" fill="#3c4566"/>
+          <circle cx="160" cy="222" r="14" fill="#ffb84d"/>
+          <path d="M155 216l12 6-12 6z" fill="#1b2340"/>
+          <path d="M292 76l3 8 8 3-8 3-3 8-3-8-8-3 8-3z" fill="#ffd9a3"/>
+          <path d="M28 210l2.4 6 6 2.4-6 2.4-2.4 6-2.4-6-6-2.4 6-2.4z" fill="#ef5b7d"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- 平台分类 -->
+  <section id="platforms">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-tag">Platform Guide</span>
+        <h2>按需求找动漫官网入口</h2>
+        <p>不同作品的上线渠道并不相同：有的在综合视频平台同步，有的由版权方自有站点独播，还有的以官方频道形式发布预告与花絮。先判断自己属于哪类需求，再从对应方向寻找动漫官网入口，会比盲目搜索更省时间。</p>
+      </div>
+      <div class="grid-3">
+        <article class="card">
+          <div class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M10 9l5 3-5 3z"/></svg></div>
+          <h3>新番同步追更</h3>
+          <p>适合想按周追当期新番的观众。这类动漫官网入口通常提供更新时间表与集数进度，关注点在于是否同步、是否有字幕版本以及更新是否准时。</p>
+          <div class="card-meta"><span>核心关注：更新时间</span><span class="card-link">按季度查看</span></div>
+        </article>
+        <article class="card">
+          <div class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19V5a2 2 0 012-2h9l5 5v11a2 2 0 01-2 2H6a2 2 0 01-2-2z"/><path d="M8 12h8M8 16h5"/></svg></div>
+          <h3>经典作品补番</h3>
+          <p>适合集中补完旧作的观众。老番的动漫官网入口更看重片库完整度与画质版本，能否按系列、按季数完整排列，直接影响补番体验。</p>
+          <div class="card-meta"><span>核心关注：片库完整</span><span class="card-link">按系列查看</span></div>
+        </article>
+        <article class="card">
+          <div class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+          <h3>剧场版与特别篇</h3>
+          <p>适合查找院线作品与特别篇。此类内容在动漫官网入口中往往单独成栏，需要留意上线窗口期与是否有独占播放安排。</p>
+          <div class="card-meta"><span>核心关注：上线窗口</span><span class="card-link">按作品查看</span></div>
+        </article>
+        <article class="card">
+          <div class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l8 4v6c0 4-3.4 7-8 8-4.6-1-8-4-8-8V7z"/><path d="M9 12l2 2 4-4"/></svg></div>
+          <h3>正版渠道辨别</h3>
+          <p>搜索时容易遇到仿冒页面，判断一个动漫官网入口是否可靠，可看域名是否与版权方一致、是否有明确的版权声明与播放授权信息。</p>
+          <div class="card-meta"><span>核心关注：来源可靠</span><span class="card-link">辨别方法</span></div>
+        </article>
+        <article class="card">
+          <div class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l18-7-7 18-2.5-7.5z"/></svg></div>
+          <h3>官方资讯与预告</h3>
+          <p>制作委员会与版权方站点会发布定档消息、视觉图与预告。想第一时间确认一部作品是否开播，官方资讯渠道比第三方汇总更准确。</p>
+          <div class="card-meta"><span>核心关注：消息时效</span><span class="card-link">按档期查看</span></div>
+        </article>
+        <article class="card">
+          <div class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 4v5"/></svg></div>
+          <h3>多端观看与收藏</h3>
+          <p>不少观众会在手机、平板与电视之间切换。支持跨端记录进度的动漫官网入口，更适合长期追更与随时续看。</p>
+          <div class="card-meta"><span>核心关注：跨端体验</span><span class="card-link">按端查看</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 找番筛选 -->
+  <section id="finder">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-tag">Quick Finder</span>
+        <h2>找番筛选：先定类型，再定动漫官网入口</h2>
+        <p>下面按观看场景整理了常见类型。输入关键词或点选标签即可筛选，结果直接给出该类作品的入口查找思路，不依赖跳转。</p>
+      </div>
+
+      <div class="filter-bar">
+        <label for="kw">关键词</label>
+        <input type="search" id="kw" placeholder="试试输入：新番、剧场版、补番、预告">
+        <div class="chip-row" role="group" aria-label="类型筛选">
+          <button class="chip" type="button" data-tag="新番" aria-pressed="false">新番</button>
+          <button class="chip" type="button" data-tag="补番" aria-pressed="false">补番</button>
+          <button class="chip" type="button" data-tag="剧场版" aria-pressed="false">剧场版</button>
+          <button class="chip" type="button" data-tag="预告" aria-pressed="false">预告</button>
+          <button class="chip" type="button" data-tag="全部" aria-pressed="true">全部</button>
+        </div>
+      </div>
+
+      <div class="list-card" id="resultList">
+        <div class="list-row" data-tags="新番 预告">
+          <h3>当期新番同步平台</h3>
+          <p class="desc">适合每周固定追更。找动漫官网入口时先确认更新时间与集数，再看是否提供多语言字幕版本。</p>
+          <div class="tagline"><b>新番</b>入口查找思路</div>
+        </div>
+        <div class="list-row" data-tags="补番 剧场版">
+          <h3>系列旧作完整片库</h3>
+          <p class="desc">适合从第一季连续补到最新一季。片库是否按季排列，是判断这类动漫官网入口是否好用的关键。</p>
+          <div class="tagline"><b>补番</b>入口查找思路</div>
+        </div>
+        <div class="list-row" data-tags="剧场版 预告">
+          <h3>院线作品与特别篇专区</h3>
+          <p class="desc">剧场版在动漫官网入口中通常独立成栏，关注上线时间与是否为独占播放，避免找错版本。</p>
+          <div class="tagline"><b>剧场版</b>入口查找思路</div>
+        </div>
+        <div class="list-row" data-tags="预告 新番">
+          <h3>官方资讯与定档发布</h3>
+          <p class="desc">定档、预告与视觉图以官方渠道为准。把资讯来源与播放入口分开记录，搜索时更不容易走错。</p>
+          <div class="tagline"><b>预告</b>入口查找思路</div>
+        </div>
+        <p class="empty" id="emptyTip">没有匹配的类型，换个关键词试试。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 指南与侧栏 -->
+  <section id="guide">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-tag">How to Start</span>
+        <h2>第一次寻找动漫官网入口的完整流程</h2>
+        <p>把「确认作品 → 确认渠道 → 确认版本」三步走顺，大多数找入口的问题都会变得简单。</p>
+      </div>
+      <div class="split">
+        <div class="article-box">
+          <h2>从作品出发，而不是从搜索框出发</h2>
+          <p>很多人在找动漫官网入口时，习惯直接搜索作品名加“在线观看”，结果首页往往混入聚合页与转载页。更稳妥的方式是先确认作品的制作方与发行方，再顺着官方公布的信息找到授权平台。作品名、季数、放送年份三个信息确认清楚，能排除大量同名混淆。</p>
+
+          <h3>一、确认作品的准确名称</h3>
+          <p>日文原名、中文译名与英文标题可能完全不同，部分作品还存在续作与重制版。搜索前先确认季数与年份，是减少误入非目标页面的有效办法。名称准确以后，动漫官网入口的查找范围会明显收窄。</p>
+
+          <h3>二、看清平台属于哪一类</h3>
+          <ul>
+            <li>综合视频平台：片库广，适合补番与跨类型浏览。</li>
+            <li>版权方自有站点：以官方资讯、预告与独家内容为主。</li>
+            <li>频道型页面：按档期更新，适合追当期新番。</li>
+          </ul>
+          <p>三类渠道承担的功能不同，不必强求一个动漫官网入口解决全部需求。追更用一个、查资讯用另一个，是更常见的组合方式。</p>
+
+          <h3>三、核对版本与字幕</h3>
+          <p>同一部作品可能存在不同字幕版本与清晰度档位。进入播放页后先看片头信息与集数标注，确认是否为完整版本，再决定是否长期使用该入口。对补番观众来说，这一步尤其值得花时间。</p>
+
+          <h3>四、记录常用入口</h3>
+          <p>把常用的两三个动漫官网入口加入浏览器收藏或书签栏，比每次重新搜索更可靠。季度更替时再回头检查一次链接是否仍然有效，就能维持一套稳定的观看路径。</p>
+        </div>
+
+        <aside class="aside-box">
+          <h3>三步快速上手</h3>
+          <ol class="steps">
+            <li>写下作品全名、季数与年份，避免同名混淆。</li>
+            <li>判断需求属于追更、补番还是查资讯，选对应类型。</li>
+            <li>进入页面后核对集数、版本与字幕，再收藏入口。</li>
+          </ol>
+          <p>如果一时找不到明确的动漫官网入口，可以先看官方资讯页确认放送信息，再顺藤摸瓜找到播放渠道，通常比直接搜索更快得到结果。</p>
+          <a class="btn btn-primary" href="#platforms" style="width:100%;justify-content:center;">回到平台分类</a>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- 资讯更新 -->
+  <section id="updates">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-tag">Updates</span>
+        <h2>入口整理与观看提示</h2>
+        <p>按季度梳理一次入口变化，记录与观看体验直接相关的调整方向。</p>
+      </div>
+      <div class="update-grid">
+        <article class="update-item">
+          <time>季度整理</time>
+          <h3>新番档期入口复核</h3>
+          <p>每季新番开播前后，各平台的上线安排可能调整。建议在开播首周重新确认一次动漫官网入口的更新时间，避免沿用上一季的页面。</p>
+        </article>
+        <article class="update-item">
+          <time>版本提示</time>
+          <h3>字幕与清晰度标注</h3>
+          <p>播放页通常会标注字幕语言与清晰度档位。补番时优先选择标注完整的版本，可减少中途切换入口的情况。</p>
+        </article>
+        <article class="update-item">
+          <time>渠道提示</time>
+          <h3>辨别非官方页面</h3>
+          <p>域名与版权方不一致、缺少版权声明的页面需要谨慎。可靠的动漫官网入口一般会在页脚明确列出授权信息与联系方式。</p>
+        </article>
+        <article class="update-item">
+          <time>使用提示</time>
+          <h3>跨端进度与收藏</h3>
+          <p>支持跨端记录的入口更适合长期追更。登录后同步进度，切换设备时不必手动定位集数，观看连续性更好。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer id="footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">
+          <svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#ffb84d"/><path d="M32 14l4.6 11.2L48 26l-8.4 8 2.4 11.5L32 40.2 22 45.5l2.4-11.5L16 26l11.4-.8z" fill="#1b2340"/></svg>
+          动漫官网入口
+        </div>
+        <p>「动漫官网入口」是一份观看渠道整理专题页，按需求分类汇总正版平台方向、找番思路与入口核对方法，帮助观众减少搜索中的试错成本。</p>
+      </div>
+      <div class="foot-col">
+        <h4>页面导航</h4>
+        <a href="#platforms">观看平台分类</a>
+        <a href="#finder">找番筛选</a>
+        <a href="#guide">入门指南</a>
+        <a href="#updates">资讯更新</a>
+      </div>
+      <div class="foot-col">
+        <h4>使用说明</h4>
+        <a href="#guide">入口核对方法</a>
+        <a href="#platforms">正版渠道辨别</a>
+        <a href="#finder">按类型查找</a>
+        <a href="#footer">关于本站</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>本站为动漫观看渠道整理页，不存储、不提供任何视频文件。</span>
+      <span>动漫官网入口 · 内容持续整理</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var input = document.getElementById('kw');
+  var chips = Array.prototype.slice.call(document.querySelectorAll('.chip'));
+  var rows = Array.prototype.slice.call(document.querySelectorAll('#resultList .list-row'));
+  var empty = document.getElementById('emptyTip');
+  var activeTag = '全部';
+
+  function apply(){
+    var q = (input.value || '').trim();
+    var shown = 0;
+    rows.forEach(function(row){
+      var tags = row.getAttribute('data-tags') || '';
+      var text = row.textContent || '';
+      var tagOk = activeTag === '全部' || tags.indexOf(activeTag) > -1;
+      var kwOk = q === '' || text.indexOf(q) > -1 || tags.indexOf(q) > -1;
+      var ok = tagOk && kwOk;
+      row.style.display = ok ? '' : 'none';
+      if(ok) shown++;
+    });
+    empty.classList.toggle('show', shown === 0);
+  }
+
+  chips.forEach(function(chip){
+    chip.addEventListener('click', function(){
+      activeTag = chip.getAttribute('data-tag');
+      chips.forEach(function(c){ c.setAttribute('aria-pressed', c === chip ? 'true' : 'false'); });
+      apply();
+    });
+  });
+
+  input.addEventListener('input', apply);
+  apply();
+})();
+</script>
+
+</body>
+</html>
